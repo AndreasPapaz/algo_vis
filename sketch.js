@@ -1,7 +1,9 @@
 let tree;
 
 function setup() {
-  noCanvas();
+  // noCanvas();
+  createCanvas(600, 400);
+  background(51);
   tree = new Tree();
   tree.addNode(5);
   tree.addNode(3);
@@ -16,11 +18,6 @@ function setup() {
   tree.traverse();
 }
 
-function draw() {
-  if (mouseIsPressed) {
-    fill(100);
-  } else {
-    fill(255);
-  }
-  ellipse(mouseX, mouseY, 80, 80);
-}
+// function draw() {
+//
+// }
