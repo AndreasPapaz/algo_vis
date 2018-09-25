@@ -17,3 +17,18 @@ Node.prototype.visit = function() {
     console.log(this.value);
   }
 }
+
+Node.prototype.search = function(val) {
+  if (val === this.value) {
+    return this;
+  }
+  else if (val <= this.value && this.left != null) {
+    return this.left.search(val);
+  }
+  else if (val > this.value && this.right != null) {
+    return this.right.search(val);
+  }
+  else {
+    return null
+  }
+}

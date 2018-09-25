@@ -31,6 +31,10 @@ Tree.prototype.addNode = function(n) {
 }
 
 Tree.prototype.traverse = function() {
-  console.log('hi')
   this.root.visit();
+}
+
+Tree.prototype.search = function(value) {
+  let found = this.root.search(value);
+  return found;
 }
