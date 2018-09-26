@@ -1,9 +1,10 @@
-function Node(label, x, y) {
+function Node(label, x, y, level) {
   this.value = label;
   this.left = null;
   this.right = null;
   this.x = x;
   this.y = y;
+  this.level = level
 }
 
 // Node.prototype.visit = function() {
@@ -25,16 +26,22 @@ function Node(label, x, y) {
 //     text(this.value, this.x, this.y);
 //   }
 // }
-Node.prototype.visit = function() {
+Node.prototype.visit = function(parent) {
   if (this.left != null) {
-    this.left.visit();
+    this.left.visit(this);
   }
   console.log(this.value);
   fill(255);
   noStroke();
+  textAlign(CENTER);
   text(this.value, this.x, this.y);
+  stroke(255);
+  noFill();
+  ellipse(this.x, this.y, 35, 35);
+  line(parent.x, parent.y, this.x, this.y);
+  // noFill();
   if (this.right != null) {
-    this.right.visit();
+    this.right.visit(this);
   }
 }
 
