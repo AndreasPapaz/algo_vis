@@ -8,7 +8,7 @@ Tree.prototype.addNode = function(n, mem={'level': 0}) {
   if (this.root == null){
     this.root = node;
     this.root.x = width / 2;
-    this.root.y = 16;
+    this.root.y = 30;
     this.root.level = mem['level']
   }
   else {
@@ -17,11 +17,11 @@ Tree.prototype.addNode = function(n, mem={'level': 0}) {
 
     while (currentNode != null) {
       mem['level'] += 1;
-      if (currentNode.value > node.value) {
+      if (int(currentNode.value) > int(node.value)) {
         if (currentNode.left === null) {
           currentNode.left = node;
-          currentNode.left.x = currentNode.x - 50;
-          currentNode.left.y = currentNode.y + (15 * mem['level'])/1.5;
+          currentNode.left.x = currentNode.x - 80 - 1*mem['level'];
+          currentNode.left.y = currentNode.y + (35 * mem['level']);
           currentNode.left.level = mem['level']
           currentNode = null;
         } else {
@@ -30,8 +30,8 @@ Tree.prototype.addNode = function(n, mem={'level': 0}) {
       } else {
         if (currentNode.right === null) {
           currentNode.right = node;
-          currentNode.right.x = currentNode.x + 50;
-          currentNode.right.y = currentNode.y + (15 * mem['level'])/1.5;
+          currentNode.right.x = currentNode.x + 80 + 1*mem['level'];
+          currentNode.right.y = currentNode.y + (35 * mem['level']);
           currentNode.right.level = mem['level']
           currentNode = null;
         } else {
